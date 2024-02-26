@@ -6,7 +6,7 @@ load_dotenv()
 
 # create llm object
 from langchain_openai import ChatOpenAI
-llm = ChatOpenAI(model="gpt-3.5-turbo")
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.9)
 
 #invoke llm
 result = llm.invoke("what's up buttercup?")
