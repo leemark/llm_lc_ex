@@ -1,6 +1,6 @@
 # reqs: python-dotenv, langchain, langchain-openai 
 
-#load environment variables from .env file
+# load environment variables from .env file
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -8,7 +8,7 @@ load_dotenv()
 from langchain_openai import ChatOpenAI
 llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.9)
 
-#invoke llm
+# invoke llm
 result = llm.invoke("what's up buttercup?")
 print(result)
 print(result.content)
@@ -20,19 +20,19 @@ prompt = ChatPromptTemplate.from_messages([
     ("user", "{input}")
 ])
 
-#use an output parser
+# use an output parser
 from langchain_core.output_parsers import StrOutputParser
 output_parser = StrOutputParser()
 
 # make a ch-ch-chain
 chain = prompt | llm | output_parser
 
-#invoke the ch-ch-chain
+# invoke the ch-ch-chain
 result =chain.invoke({"input": "what's your name?"})
 print(result)
 
 
-# or with basic error handling
+# with basic error handling
 try:
     result =chain.invoke({"input": "what's your name?"})
     print(result)
