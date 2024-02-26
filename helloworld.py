@@ -30,3 +30,11 @@ chain = prompt | llm | output_parser
 #invoke the ch-ch-chain
 result =chain.invoke({"input": "what's your name?"})
 print(result)
+
+
+# or with basic error handling
+try:
+    result =chain.invoke({"input": "what's your name?"})
+    print(result)
+except Exception as e:
+    print(f"An error occurred: {e}")
